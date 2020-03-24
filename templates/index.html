@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Face-R</title>
+      <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+<script>
+    function showloading() {
+        image = document.getElementById('loading_image');
+        image.style.display = 'inline'
+    }
+</script>
+<script>function showDiv() {
+   document.getElementById('second').style.display = "block";
+}</script>
+
+<style>
+    .img_holder img{
+        max-width: 100%; max-height: 100%;
+    }
+
+    .btn-file {
+    position: relative;
+    overflow: hidden;
+    }
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+    
+
+</style>
+
+<body>
+<header class="navbar">
+
+<div style="
+   background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;
+   padding:260px;background-image:url(https://media.giphy.com/media/l41YvpiA9uMWw5AMU/giphy.gif)">
+    <h2 style="color: white;text-align: center;font-size: 8em ;font-family: 'Pacifico', cursive; margin-top: -110px;
+  ">Face-R</h2>
+   <h3 style="letter-spacing: 2px; color: white;text-align: center;font-size: 2em ;font-family: 'Noto Sans', sans-serif;, cursive;padding-top: 30px">"Let the emotions flow in"</h3>
+   <a href="#second"><button id="" class="btn btn-primary" style="margin-left: 46%;margin-top: 40px;padding: 10px;">Experience It</button></a>
+    
+</div>
+ 
+ 
+ <div style="text-align: center;padding: 200px" id="second" style="padding: 182px">
+  <h3 style="padding: 50px; margin: auto;width: 80%; text-align: center; margin-top: 20px;  text-transform: uppercase">Emotion recognition</h3>
+
+   <div style="text-align: center; margin-top: 20px">
+       <img style="max-width: 600px" src="{{ url_for('static', filename='face.jpg') }}"/>
+   </div>
+
+  <form action="/upload" method="post" enctype="multipart/form-data" style="margin-top: 30px; width: 80%; text-align: center; margin: auto;" onsubmit="showloading()">
+      <span class="btn btn-default btn-file">
+        Select Image <input type="file" name="image">
+    </span><br><br>
+        <input type="submit" value="Upload" class="btn btn-primary">
+  </form>
+    <div style="text-align: center">
+        <img id="loading_image" style="display: none" src="{{ url_for('static', filename='loading.gif')}}">
+    </div>   
+     
+     
+ </div>
+  
+</header>
+
+</body>
+    </head>
+</html>
